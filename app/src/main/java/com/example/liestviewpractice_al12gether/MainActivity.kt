@@ -2,11 +2,15 @@ package com.example.liestviewpractice_al12gether
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.liestviewpractice_al12gether.adapters.StudentAdapter
 import com.example.liestviewpractice_al12gether.datas.Student
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    val mStudentList = ArrayList<>()
+    val mStudentList = ArrayList<Student>()
+
+    lateinit var mAdapter : StudentAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,6 +23,12 @@ class MainActivity : AppCompatActivity() {
         mStudentList.add( Student("박철수", birthYear = 2000) )
         mStudentList.add( Student("정민규", birthYear = 1984) )
         mStudentList.add( Student("장소영", birthYear = 1962) )
+
+
+        mAdapter = StudentAdapter(this, R.layout.student_list_item, mStudentList)
+
+        studentListView.adapter = mAdapter
+
 
     }
 }

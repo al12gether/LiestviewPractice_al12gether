@@ -5,10 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.TextView
 import com.example.liestviewpractice_al12gether.R
 import com.example.liestviewpractice_al12gether.datas.Student
 import java.util.ArrayList
-import kotlin.collections.ArrayList
 
 class StudentAdapter(
     val mContext : Context,
@@ -25,6 +25,16 @@ class StudentAdapter(
         }
 
         val row = tempRow!!
+
+
+        val  studentData = mList[position]
+
+        val nameTxt = row.findViewById<TextView>(R.id.nameTxt)
+        val birthYearTxt = row.findViewById<TextView>(R.id.birthYearTxt)
+
+        nameTxt.text = studentData.name
+
+        birthYearTxt.text = "(${studentData.birthYear}년생)"
 
 
         return row
